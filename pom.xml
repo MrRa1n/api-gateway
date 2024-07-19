@@ -11,6 +11,7 @@
     <module>product-service</module>
     <module>order-service</module>
     <module>inventory-service</module>
+    <module>discovery-server</module>
   </modules>
 
   <parent>
@@ -20,12 +21,23 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
+  <properties>
+    <spring-cloud.version>2023.0.3</spring-cloud.version>
+  </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.testcontainers</groupId>
         <artifactId>testcontainers-bom</artifactId>
         <version>1.19.8</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
